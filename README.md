@@ -1,2 +1,2 @@
-# advent-of-code
+# CodingAdvent
 Solutions to Santa's puzzles
