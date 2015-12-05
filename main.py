@@ -1,6 +1,6 @@
 #One stop shop for pulling up solutions
 
-from days import day1
+from days import day1, day2
 
 def run_part(d, p):
 	day = globals()['day%d' % d]
@@ -26,3 +26,5 @@ def main():
 		day, part = get_inputs()
 		
 main()
+
+#run_part(2,2)
