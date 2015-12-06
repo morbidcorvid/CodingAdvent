@@ -2,6 +2,7 @@
 # Santa needs help mining some AdventCoins (very similar to bitcoins) to use as gifts for all the economically forward-thinking little girls and boys.
 
 import hashlib
+from timeit import default_timer as timer
 
 secret = "bgvyzdsv"
 
@@ -18,8 +19,10 @@ def part_1():
 		i += 1
 
 # Now find one that starts with six zeroes.
+# (did this lazily...)
 def part_2():
 	i = 1
+	start = timer()
 	while True:
 		key = secret+str(i)
 		hex_hash = hashlib.md5(key.encode('utf-8')).hexdigest()
@@ -27,3 +30,5 @@ def part_2():
 			print('The number {} produces the hash {}'.format(i, hex_hash))
 			break
 		i += 1
+	end = timer()
+	print(end - start)  
