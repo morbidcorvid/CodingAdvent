@@ -7,6 +7,7 @@ from modules.input import Input
 
 i = Input('day1.txt')
 
+#To what floor do the instructions take Santa?
 def part_1():
 	floor = 0
 
@@ -17,12 +18,14 @@ def part_1():
 		elif c == ')':
 			floor -= 1
 
-	print(floor)
+	print('Santa ends up on floor: {}'.format(floor))
 
 #What is the position of the character that causes Santa to first enter the basement?
 def part_2():
 	floor = 0
-
+	if i.input == '':
+		print('no input')
+		
 	while i.position < i.len-1:
 		c = i.next_char()
 		if c == '(':
@@ -31,7 +34,9 @@ def part_2():
 			floor -= 1
 		if floor < 0:
 			#Question stipulates that first char in intructions has position 1 vs list position 0, increment position to match
-			print('position: '+str(i.position+1)+'    floor:'+str(floor)+'    char:' + c)
+			print("Santa's {} instruction takes him to the basement".format(i.position+1))
+			#print('position: '+str(i.position+1)+'    floor:'+str(floor)+'    char:' + c)
 			break
 	if floor > 0:
 		print('Santa never reaches the basement!')
+	
